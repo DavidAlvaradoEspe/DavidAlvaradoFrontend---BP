@@ -9,7 +9,8 @@ El FrontEnd consume la API de ejemplo y muestra la información en tablas con un
 - Habilitar CORS en el Backend en el archivo main.ts (en la linea comentada)
 - Si el proyecto se ejecuta con error se debe instalar cors desde npm
 ## FrontEnd server
-- navegar a bp-frontend e instalar paquetes
+- Clonar este proyecto desde la opción "Code"
+- Navegar a bp-frontend e instalar paquetes
 ```bash
    cd bp-frontend
    npm i
