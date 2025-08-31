@@ -29,7 +29,7 @@ para ejecutar los tests con Jest:
   npm run test
 ```
 ## Comentarios Adicionales
-- El proyecto manera señales y su store
+- El proyecto maneja señales y su store
 - Para las pantallas principales no se a utilizado nada mas que vanilla scss y HTML
 - Se utilizo toastr para las alertas, tambien se pudo optar por SweetAlert
 ## Areas de Mejora
