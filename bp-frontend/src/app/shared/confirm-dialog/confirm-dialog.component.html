@@ -1,0 +1,14 @@
+@if(open){
+  <div class="cd-overlay" aria-hidden="true">
+    <div class="cd-modal" role="dialog" aria-modal="true" aria-labelledby="cd-title">
+      <div class="cd-body">
+        <p>{{message}}</p>
+      </div>
+      <hr style="width: 100%">
+      <div class="cd-actions d-flex justify-end gap-3">
+        <button type="button" class="btn-secondary w-100" (click)="cancelAction.emit()"> {{cancelText}}</button>
+        <button type="button" class="btn w-100" (click)="confirmAction.emit()"> {{confirmText}}</button>
+      </div>
+    </div>
+  </div>
+}

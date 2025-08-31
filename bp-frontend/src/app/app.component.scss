@@ -1,0 +1,19 @@
+.app-grid{
+  display: grid;
+  grid-template-rows: 10% 90%;
+  grid-template-columns: 100%;
+  height: 100vh;
+
+}
+.app-header-grid{
+  background-color: var(--bg);
+}
+.app-content-grid{
+  background-color: var(--gray-bg);
+}
+.app-title{
+  color: var(--blue-text);
+  text-align: center;
+  cursor: pointer;
+}
+

@@ -1,59 +1,39 @@
-# BpFrontend
+# Proyecto Banco FrontEnd
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
-
-## Development server
-
-To start a local development server, run:
+El FrontEnd consume la API de ejemplo y muestra la información en tablas con un soporte para CRUD
+## Requisitos
+- Node.js **>22 LTS**
+- Angular CLI
+- npm o yarn
+## BackEnd Server
+- Habilitar CORS en el Backend en el archivo main.ts (en la linea comentada)
+- Si el proyecto se ejecuta con error se debe instalar cors desde npm
+## FrontEnd server
+- navegar a bp-frontend e instalar paquetes
+```bash
+   cd bp-frontend
+   npm i
+```
+- Ejecutar el proyecto
 
 ```bash
-ng serve
+  ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Ejecutar Unit Test
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+para ejecutar los tests con Jest:
 ```bash
-ng generate component component-name
+  npm run test
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Comentarios Adicionales
+- El proyecto manera señales y su store
+- Para las pantallas principales no se a utilizado nada mas que vanilla scss y HTML
+- Se utilizo toastr para las alertas, tambien se pudo optar por SweetAlert
+## Areas de Mejora
+- Se puede mejorar mucho los mensajes en pantalla
+- Se debe agregar iconos
+- Solo se ha implementado un test con el fin de dar a entender que puedo escribir codigo testeable 
+- Se debe arreglar el menu flotante cuando se hace click en el ultimo producto

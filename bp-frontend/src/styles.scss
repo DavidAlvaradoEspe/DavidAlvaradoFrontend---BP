@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --bg:#ffffff;
+  --gray-bg:#F4F6F9;
+  --text: #1e1e1e;
+  --muted: #6b7280;
+  --primary: #F5DF66;
+  --primary-ink: #222222;
+  --danger: #b00020;
+  --overlay: rgba(0,0,0,.45);
+  --blue-text: #233357;
+  --radius: .25rem;
+  --shadow: 0 .75rem 2.5rem rgba(0,0,0,.15);
+
+  --gap-1: .5rem;
+  --gap-2: .75rem;
+  --gap-3: 1rem;
+  --gap-4: 1.25rem;
+}
+body{
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+.text-center{
+  text-align: center;
+}
+.d-flex{
+  display: flex;
+}
+.flex-col{
+  flex-direction: column;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+.items-center{
+  align-items: center;
+}
+.gap-2{
+  gap: var(--gap-2);
+}
+.gap-3{
+  gap: var(--gap-3);
+}
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 0;
+  background: var(--primary);
+  color: var(--blue-text);
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-secondary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 0;
+  background: var(--gray-bg);
+  color: var(--blue-text);
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-danger{
+  background: var(--danger);
+  color: #fff;
+}
+.input, .select, .textarea{
+  padding: .575rem .25rem;
+  border: .0625rem solid #ccc;
+  border-radius: 0.375rem;
+  width: 100%;
+}
+.error{
+  color: var(--danger);
+  font-size: .875rem;
+}
+.w-100{
+  width: 100%;
+}

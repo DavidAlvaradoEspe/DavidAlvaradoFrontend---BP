@@ -1,0 +1,90 @@
+<section class="wrap">
+  <h2 class="text-center">{{isEdit() ? 'Editar Producto' : 'Formulario de Registro'}}</h2>
+  <hr style="width: 100%">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="grid">
+    <label for="id">
+      <span>ID</span>
+      <input id="id" type="text" class="input" formControlName="id" [readonly]="isEdit()">
+      @if (form.get('id')?.touched && (form.get('id')?.errors)){
+        <small class="error">
+          @if (form.get('id')?.errors?.['required']){
+            ID no válido
+            }
+          @else if (form.get('id')?.errors?.['minlength']){
+            Mínimo 3 caracteres
+          }
+          @else if (form.get('id')?.errors?.['maxlength']){
+            Máximo 10 caracteres
+          }
+          @else if (form.get('id')?.errors?.['idTaken']){
+            Ya existe ese ID, intenta con otro
+          }
+          @else if (form.get('id')?.errors?.['server']){
+            Error de verificacion, intenta nuevamente
+          }
+        </small>
+      }
+    </label>
+
+    <label for="name">
+      <span>Nombre</span>
+      <input id="name" type="text" class="input" formControlName="name">
+      @if (form.get('name')?.touched && (form.get('name')?.invalid)){
+        <small class="error">
+          Nombre Requerido, 6-100 caracteres
+        </small>
+      }
+    </label>
+    <label for="desc">
+      <span>Descripción</span>
+      <input id="desc" class="textarea" formControlName="description">
+      @if (form.get('description')?.touched && (form.get('description')?.invalid)){
+        <small class="error">
+          Descripción Requerida, 10-200 caracteres
+        </small>
+      }
+    </label>
+
+    <label for="logo">
+      <span>Logo (URL) </span>
+      <input id="logo" class="input" formControlName="logo">
+      @if (form.get('logo')?.touched && (form.get('logo')?.invalid)){
+        <small class="error">
+          Logo requerido
+        </small>
+      }
+    </label>
+
+
+    <label for="date_release">
+      <span>Fecha de Lanzamiento</span>
+      <input id="date_release" type="date" class="input" formControlName="date_release">
+      @if (form.get('date_release')?.touched && (form.get('date_release')?.errors)){
+        <small class="error">
+          @if (form.get('date_release')?.errors?.['required']){
+            Fecha requerida
+          }
+          @else if (form.get('date_release')?.errors?.['releaseInPast']){
+            La fecha deber ser desde hoy en adelate
+          }
+        </small>
+      }
+    </label>
+    <label for="date_revision">
+      <span>Fecha de revisión</span>
+      <input id="date_revision" type="date" class="input" formControlName="date_revision">
+      @if (form.get('date_revision')?.touched && (form.get('date_revision')?.invalid || form.errors?.['revisionNotOneYear'])){
+        <small class="error">
+          La fecha de revisión debe ser exactamente un año después del lanzamiento
+        </small>
+      }
+    </label>
+    <div class="actions full d-flex justify-end gap-3">
+      <button type="button" class="btn-secondary" (click)="onReset()">Reiniciar</button>
+      <button type="submit" class="btn" [disabled]="form.invalid || store.loading()">
+        {{isEdit() ? 'Guardar' : 'Agregar'}}
+      </button>
+
+    </div>
+  </form>
+</section>

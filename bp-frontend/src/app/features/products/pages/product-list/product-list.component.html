@@ -1,0 +1,74 @@
+<section class="board">
+  <header class="board-bar d-flex items-center">
+    <div class="d-flex items-center gap-3">
+      <input class="input input-sm" type="search" placeholder="Buscar..."
+             [value]="store.page() ? store.query() : store.query()"
+             (input)="onSearch($event.target)">
+    </div>
+    <div>
+      <button class="btn" (click)="newProduct()">Agregar</button>
+    </div>
+  </header>
+<div class="content-wrapper">
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre del Producto</th>
+      <th>Descripción</th>
+      <th>Fecha de liberación</th>
+      <th>Fecha de reestructuración</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (p of store.pageItems(); track p.id){
+        <tr>
+          <td class="cell-logo">
+            <img [src]="p.logo" alt="logo">
+          </td>
+          <td>{{p.name }}</td>
+          <td class="ellipsis">{{p.description}}</td>
+          <td class="text-right">{{p.date_release}}</td>
+          <td class="text-right">{{p.date_revision}}</td>
+          <td class="cell-actions">
+            <button class="icon" aria-label="Acciones" (click)="openMenuFor(p.id)">⁝</button>
+            @if(menuOpenFor()===p.id){
+              <div class="menu">
+                <button class="menu-item" (click)="updateProduct(p)">Editar</button>
+                <button class="menu-item danger" (click)="askDelete(p)">Eliminar</button>
+              </div>
+            }
+          </td>
+
+        </tr>
+        }
+    </tbody>
+  </table>
+</div>
+  <footer class="board-footer d-flex items-center">
+    <div class="muted">  {{store.total()}} Resultados </div>
+    <label for="pageSizeSelect" class="d-flex items-center gap-2">
+      <select class="select" id="pageSizeSelect" [value]="store.pageSize()"
+              (change)="onChangePageSize($event.target)">
+        <option [value]="5">5</option>
+        <option [value]="10">10</option>
+        <option [value]="20">20</option>
+      </select>
+    </label>
+  </footer>
+</div>
+
+</section>
+<app-confirm-dialog
+[open]="confirmOpen()"
+[title]="'Eliminar Producto'"
+[message]="'¿Está seguro de eliminar el producto ' + (selected()?.name ) + '?'"
+[confirmText]="'Confirmar'"
+[cancelText]="'Cancelar'"
+(cancelAction)="confirmOpen.set(false)"
+(confirmAction)="doDelete(selected())"
+>
+
+</app-confirm-dialog>
