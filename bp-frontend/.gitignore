@@ -22,7 +22,6 @@ yarn-error.log
 
 # Environments
 /src/environments/environment.prod.ts
-/src/environments/environment.ts
 
 # Visual Studio Code
 .vscode/*
