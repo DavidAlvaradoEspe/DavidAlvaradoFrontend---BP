@@ -21,8 +21,7 @@ El FrontEnd consume la API de ejemplo y muestra la información en tablas con un
   ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
+La ruta en el navegador es la siguiente: `http://localhost:4200/`.
 ## Ejecutar Unit Test
 
 para ejecutar los tests con Jest:
