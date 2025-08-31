@@ -49,10 +49,11 @@
 .text-right{
   text-align: right;
 }
-cell-logo img{
+.cell-logo img{
   width: 1.5rem;
   height: 1.5rem;
   object-fit: contain;
+  border-radius: 0.25rem;
 }
 .ellipsis{
   max-width: 12rem;
